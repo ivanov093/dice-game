@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class diceGame2
+{
+  public static void main( String[] args)
+  {
+  		
+  	Dice diceRoll = new Dice();
+  	Dice gameOutcome = new Dice();
+  	Scanner input = new Scanner( System.in );
+  	
+  	
+  	
+  	System.out.print("How many dice do you want to roll?: ");
+  	int userNumRolls = input.nextInt();
+  	int totalOfRolls =  diceRoll.sumOfRolls(userNumRolls);
+  	int midBound = totalOfRolls /2;
+  	
+  	System.out.printf(
+  		"Guess \"low\" (<= %d)) or \"high\"(> %d ) as is: ", 
+  		midBound, midBound);
+  	String userGuess = input.next();
+  	
+  	
+  	String outcome = gameOutcome.result(totalOfRolls, userGuess, midBound);
+  	System.out.printf("\n%s\n", gameOutcome);
+  }
+}
